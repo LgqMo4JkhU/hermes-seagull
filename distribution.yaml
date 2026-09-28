@@ -1,0 +1,39 @@
+# Seagull Profile - Hermes Distribution Manifest
+# 规范：https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions
+# 必填字段仅 name；其余可选。source / installed_at 由 hermes profile install 自动写入。
+
+name: seagull
+version: 1.0.0
+description: "海鸥破甲智能体 - CTF/Red-team/Reverse/Pentest 全域专家模式"
+hermes_requires: ">=0.12.0"
+author: "Seagull Team"
+license: "MIT"
+
+# 安装时检测的环境变量
+env_requires:
+  - name: OPENAI_API_KEY
+    description: "OpenAI API key (for model access)"
+    required: true
+  - name: HERMES_SEAGULL_DEBUG
+    description: "Enable seagull armor-break debug logging"
+    required: false
+    default: ""
+
+# 哪些路径属于 distribution（update 时会从最新 clone 替换）
+# 省略则用默认：SOUL.md, config.yaml, mcp.json, skills/, cron/, distribution.yaml
+distribution_owned:
+  - SOUL.md
+  - AGENTS.md
+  - profile.yaml
+  - skills/
+  - README.md
+  - README.zh-CN.md
+  - QUICKSTART.md
+  - STRUCTURE.md
+  - LICENSE
+  - requirements.txt
+  - install.sh
+  - install.ps1
+  - verify.sh
+  - verify.ps1
+  - package.ps1
